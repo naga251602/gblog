@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(cuid())
+  name     String
+  email    String  @unique
+  password String
+  isadmin  Boolean @default(false)
+}
+
+model Post {
+  id       String @id @default(cuid())
+  title    String
+  body     String
+  image    String
+  categoryId String @default("")
+  authorId String  
+  links    String @default("")
+  likes    Int    @default(0)
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @default("none")
+}
+
+model Comment {
+  id       String @id @default(cuid())
+  body     String
+  authorId String
+  postId   String
+  name     String
+}
+
+model Like {
+  id       String @id @default(cuid())
+  authorId String
+  postId   String
+}

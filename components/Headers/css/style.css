@@ -1,0 +1,27 @@
+#menuBtn{
+    display: none;
+}
+
+#menu{
+    animation: slideDown 0.5s ease-in-out;
+}
+/* slide down animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #navLinks,#navBtn1,#navBtn2{
+        display: none;
+    }
+    #menuBtn{
+        display: block;
+    }
+}

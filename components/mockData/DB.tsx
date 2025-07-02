@@ -1,0 +1,12 @@
+export const PostsDb = [
+  {
+    "id": "clg1tisxf0000up3so6e3382f",
+    "title": "The best place to learn Coding For Free!!",
+    "body": "freeCodeCamp is a non-profit organization that consists of an interactive learning web platform, an online community forum, chat rooms, online publications and local organizations that intend to make learning web development accessible to anyone.",
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAk1BMVEUKCiMAAAD///8AABsAAB4AAB8GBiEAABYAABoAABT39/gAAA0AABIAABgAABADAyB6eoAAAAXf3+Hn5+nv7/Choaavr7NlZW5bW2VycnpNTVirq6/W1thFRVDIyMvs7O0RESgzM0ErKzuOjpQ7O0i5ub3OztBXV2G2trqBgYeWlpw4OEUkJDUWFiuIiI6SkpcdHTFHUpKDAAAEqUlEQVR4nO3Y63aqSBAFYKoaGgUEAfEuxgtCIjF5/6eb6oZcZ87JSmatSTyzvx9JSWiUna621XEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4A81iCPvSwOH+l8PUupLz/xtaF4c7ke/PWVIwv/b0Vvv1Y3H5pzBx892ae2gLiQ1q8NPvdhvFh+4Kvn4u/9wOp4wbxfvb4t44748OATMeT384NmomvgmLDVPzUO15Fn8pZf9PWhyS1ROuyT6maKfZowtRnMej+IFL9WrP8lvCmxY9shwzLNodOBWGlp7ifN0Nd3/6keFF45tyxMvbEjhnNuXxH+6kIKaKHnUKVFMQ0rMoWFoG6ovqCwp0VQ2oZZGi0hmjyddSSYsGean5DqUrUgnlD9ELrn7RI4kKcUpReRqP6Y4ItPonsNL280yo/ixS61Z03fe/2eEq4CDYEI6LTm4ZLx1EypYmq72na5YjmhdyLxzl/ORX8qRYBx6Nycp7oKNokaKbKdoexuZ5tqM9rkZtVM3Wc7FmoOzTN0t82QuaYVFnwxVzI1tRC/h/bVMLe3c5Iv2MXH0zX3FC8oeqAg2RAf20mJypPTAqgvLcRWV6xuiGW9one/StpGiyvYUr5gkEbNcKZfyRmbdaU1arsZTOq0oyI8U3zFJ4+aXyDyru5dA8z637O5qVi1N+WyY2KJa0WC+lMfmfW19S/ncFNm4D8ssb9JEmtYH4mWkXZpsiFtzjnRyF5acY/KkOiBHEpQrNFPiZCQdat4N5IfqTuJJkJGt02mVftO9f56E0+0b0koykamRbTPBD5Tltjj0YWktYSlzpw/dTZuwgsyes+jDMsv+eJ2Xq8nrsMzqRIGMpa7l4lvmRdlM7TtGWJRXs2i9C8s8LsbG/Uthw5I+/aewLvYcJWFJg+lHuXc+jC+nX4VlxmmSZY5k+bMLWLi62pllH5PvRxSaW+2KUyV3RatG0hm8C4v3oe+bd9G8MOeUdxTIKNq8aUNPPYW1Hcv8G82Yz9KJzCYsOl3PmvUcFlFTkCzCaXWSRScqG7KFX07plpdE99Jr60qOtDynfCrFwqz0spzTTXaQd84z0U5OzO/kSNmHNTNhBZUsY0v2zbVN7P6CS0qbLiyZZvXH+/6fgrY2LDKbAeahTryM8y2vHdexxclL6E42DFzIBmorC7MpzgFnwTrY+LsJ5xOuYk0r2YLwJVUbDjIuZPmWsLZ2ZgUlbyc8lvkzqDnVjtfyYujQvjhJWPGYr2fJctyj3RxqZ9+2+3vPbDjbee3J7vS5kN3p7kxmr0VtvYxTUxxnZ1q6Uuzm9VAmpJOm5x1JIIqO9Sil+9FSuZvEa1tZs+K6juyegTLb0Y35/1BxdB0v5W43cSX6LaH2RPc5xRuod4V23e4Di6dUV7gDtxvpDvojck5/QWU/5yh76UQ2DTv1PKrlg4Qez5Wj29rsQ/Lr2cD/FySsly36cMN7r//OQY7GRR4m3/bKfiD/zTc5it58dxbRV74T+4P5yAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgf+kv3GpKg96QS7EAAAAASUVORK5CYII=",
+    "authorId": "clg1me9a20000upx8q00ew76y",
+    "links": "https://www.freecodecamp.org/",
+    "likes": 0,
+    "categoryId": "clg1m8dgw0002up38uxiv5iz0"
+  }
+]
