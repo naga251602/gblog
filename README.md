@@ -1,38 +1,142 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 gblog
 
-## Getting Started
+A high-performance, minimalist digital garden built with **Next.js 15**, **Supabase**, and **TypeScript**. Engineered for speed, accessibility, and algorithmic efficiency.
 
-First, run the development server:
+![Lighthouse Score](https://img.shields.io/badge/Lighthouse-95%2B-success?style=for-the-badge&logo=lighthouse)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase)
+
+---
+
+## 📸 Demo
+
+![gblog demo](./demo/demo.png)
+
+> _A clean, fast, and distraction-free writing environment._
+
+---
+
+## ⚡ Key Features
+
+- **Algorithmic Search:** Implemented a custom **AVL Tree** search index over post metadata. This ensures guaranteed $O(\log n)$ tag and category lookups, with automatic rebalancing on content updates.
+- **Extreme Performance:** Maintains a **95+ Lighthouse score** across mobile and desktop.
+- **Advanced ISR:** Utilizes Incremental Static Regeneration with on-demand revalidation via Supabase Webhooks.
+- **Automated Quality:** Every Pull Request triggers a **Lighthouse CI** audit on Vercel preview environments to prevent performance regression.
+- **Optimized Assets:** Automatic image optimization and format selection (WebP/AVIF) via Next.js and custom configured remote patterns.
+
+---
+
+## 🏗️ Technical Architecture
+
+### System Overview
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            gblog Architecture                           │
+└─────────────────────────────────────────────────────────────────────────┘
+
+  ┌──────────────┐     ┌────────────────────────────────────────────────┐
+  │              │     │                  Next.js 15 App                 │
+  │   Browser /  │────▶│  ┌──────────────┐   ┌──────────────────────┐  │
+  │    Client    │     │  │  App Router  │   │   ISR + Static Pages  │  │
+  │              │◀────│  │  (RSC + SSG) │   │  (revalidate on-demand│  │
+  └──────────────┘     │  └──────┬───────┘   └──────────┬───────────┘  │
+                        │         │                       │              │
+                        │  ┌──────▼───────────────────────▼───────────┐ │
+                        │  │           Custom Search Index              │ │
+                        │  │  ┌─────────────────────────────────────┐  │ │
+                        │  │  │         AVL Tree (In-Memory)         │  │ │
+                        │  │  │  • Tag lookups:      O(log n)        │  │ │
+                        │  │  │  • Category lookups: O(log n)        │  │ │
+                        │  │  │  • Auto-rebalance on content updates  │  │ │
+                        │  │  └─────────────────────────────────────┘  │ │
+                        │  └────────────────────┬───────────────────────┘ │
+                        └───────────────────────│──────────────────────────┘
+                                                │
+                        ┌───────────────────────▼──────────────────────────┐
+                        │                   Supabase                        │
+                        │  ┌─────────────────┐   ┌──────────────────────┐  │
+                        │  │   PostgreSQL DB  │   │  Webhook Triggers    │  │
+                        │  │  (Posts, Tags,   │   │  (On-demand ISR      │  │
+                        │  │   Categories)    │   │   Revalidation)      │  │
+                        │  └─────────────────┘   └──────────────────────┘  │
+                        └──────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │                          CI/CD Pipeline                                 │
+  │                                                                         │
+  │  Developer Push                                                         │
+  │       │                                                                 │
+  │       ▼                                                                 │
+  │  ┌─────────┐    ┌──────────────┐    ┌───────────────┐    ┌──────────┐ │
+  │  │ GitHub  │───▶│    Vercel    │───▶│ Lighthouse CI │───▶│   PR     │ │
+  │  │  Push   │    │  Preview     │    │  Headless     │    │ Blocked  │ │
+  │  │         │    │  Deploy      │    │  Audit        │    │ if < 95  │ │
+  │  └─────────┘    └──────────────┘    └───────────────┘    └──────────┘ │
+  │                                      Perf · A11y · SEO                 │
+  └─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Custom Search Indexing (AVL Tree)
+
+Unlike standard linear searches, gblog tokenizes post metadata and titles into a self-balancing binary search tree. This architectural choice minimizes latency as the content library scales.
+
+### CI/CD Pipeline
+
+Deployed on **Vercel** with a dedicated GitHub Action for performance monitoring:
+
+1. **Push:** Developer pushes code to a branch.
+2. **Preview:** Vercel generates a preview deployment.
+3. **Audit:** Lighthouse CI spins up a headless browser to verify Performance, Accessibility, Best Practices, and SEO.
+4. **Enforce:** PR is blocked if any score falls below **95**.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- Supabase Project
+
+### Installation
+
+```bash
+git clone https://github.com/naga251602/gblog.git
+cd gblog
+npm install
+```
+
+### Environment Setup
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+REVALIDATION_SECRET=your_secret
+```
+
+### Running Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| Layer     | Technology                     |
+| --------- | ------------------------------ |
+| Framework | Next.js 15 (App Router)        |
+| Language  | TypeScript                     |
+| Styling   | Tailwind CSS v4                |
+| Database  | PostgreSQL (Supabase)          |
+| Icons     | Lucide React                   |
+| CI/CD     | GitHub Actions + Lighthouse CI |
+| Hosting   | Vercel                         |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Built with 🖤 by Gaurav N V
