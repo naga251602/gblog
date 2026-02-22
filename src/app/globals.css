@@ -1,0 +1,14 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Keep the selection style but ensure no hover-related logic is here */
+  ::selection {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
+}
